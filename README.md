@@ -1,6 +1,6 @@
 # openvo2-client
 
-> An client application to interface with openvo2 sensor module
+> An client for open VO2 sensor module
 
 #### Build Setup
 

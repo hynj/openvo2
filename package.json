@@ -2,7 +2,7 @@
   "name": "openvo2-client",
   "version": "0.0.1",
   "author": "hynj <thenick112@gmail.com>",
-  "description": "An client application to interface with openvo2 sensor module",
+  "description": "An client for open VO2 sensor module",
   "license": null,
   "main": "./dist/electron/main.js",
   "scripts": {
