@@ -1,5 +1,7 @@
 import { app, BrowserWindow } from 'electron'
 
+import store from '../renderer/store'
+
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
@@ -23,6 +25,27 @@ function createWindow () {
     width: 1000
   })
 
+  mainWindow.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+    //event.preventDefault(); //important, otherwise first available device will be selected
+    console.log(deviceList); //if you want to see the devices in the shell
+    let bluetoothDeviceList = deviceList;
+    let result = deviceList
+    if (!result) {
+      console.log("no result");
+      callback('');
+    } else {
+      console.log("found device")
+      //callback(result.deviceId);
+    }
+
+
+
+    //callbackForBluetoothEvent = callback; //to make it accessible outside createWindow()
+
+
+    //mainWindow.webContents.send('channelForBluetoothDeviceList', bluetoothDeviceList);
+    });
+
   mainWindow.loadURL(winURL)
 
   mainWindow.on('closed', () => {
@@ -30,7 +53,11 @@ function createWindow () {
   })
 }
 
+
+
 app.on('ready', createWindow)
+
+app.commandLine.appendSwitch('enable-experimental-web-platform-features');
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
