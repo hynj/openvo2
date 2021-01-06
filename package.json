@@ -51,7 +51,7 @@
     }
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "postcss-loader": "^3.0.0",
     "tailwindcss": "^1.4.6",
     "vue": "^2.5.16",
